@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
-const wiki = require('./wiki.js');
+const info = require('./info.js');
+const h = require('./header.js');
+
+const style = "text-align:center";
+const greeting = "Hello Aliens!"
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send(h.header1(greeting, style));
 });
 
-app.use('/wiki', wiki);
+app.use('/info', info);
 
 app.listen(8000, () => {
     console.log('Example app listening on port 8000!')
